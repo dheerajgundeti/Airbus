@@ -13,3 +13,4 @@ class UserDetail(models.Model):
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=255)
     gender = models.CharField(max_length=1)
+    role = models.CharField(max_length=10)
