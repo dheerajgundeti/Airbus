@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{title}}</title>
 </head>
-<body>
-
+<body><br><br>
+    <form method="POST" class="form" align="center">
+        <div>
+        {% csrf_token %}
+        {{ form.as_p}}
+        </div>
+        <br>
+        <div align="center">
+            <input type="submit" class="button is-rounded">
+        </div>
+    </form><br>
 </body>
 </html>
