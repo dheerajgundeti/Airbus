@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 
-from . import Airport
+from Airbus.models.Airport import Airport
 
 
 class Flight(models.Model):
