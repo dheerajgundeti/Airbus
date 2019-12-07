@@ -1,0 +1,37 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.min.js"></script>
+
+{% block content %}
+  <div class="infinite-container">
+    {% for nw in news %}
+      <div style="border:5%" id="infinite-item">
+        <ul>
+          <li>{{nw.text}}</li>
+          <li>{{nw.user}}</li>
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+
+
+  {% if news.has_next %}
+    <a class="infinite-more-link" href="?page={{ news.next_page_number }}">More</a>
+  {% endif %}
+
+  <div class="loading" style="display: none;">
+    Loading...
+  </div>
+
+  <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('.loading').hide();
+      }
+    });
+  </script>
+{% endblock %}

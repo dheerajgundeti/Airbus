@@ -77,11 +77,15 @@ WSGI_APPLICATION = 'WebApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'onlinedb',
-        'HOST': 'localhost',
-        'USER':"root",
-        'PASSWORD': "yourpassword"
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'news': {
+        'ENGINE': 'djongo',
+        'NAME': 'test',
+        'USER': 'krishna-96214',
+        'PASSWORD': 'nodeapi',
+        'HOST': 'mongodb+srv://krishna-96214:nodeapi@nodeapi-68lrl.mongodb.net/test?retryWrites=true&w=majority'
     }
 }
 
