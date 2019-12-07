@@ -1,4 +1,8 @@
+django
 tweepy
 requests
 textblob
 twython
+django-mongodb-engine
+djongo
+sqlparse==0.2.4
