@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>Booking Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <style>
+        .centerall {
+height: 100vh;
+padding: 0;
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+align-items:center
+}
+
+    </style>
+</head>
+<div class="navbar" style="background-color : lightgreen;margin-bottom:2%">
+        <div class="navbar-item" style="width:10%" ></div>
+        <div class="navbar-item" style="font-size:30px;%">
+            <h1><center><b> Booking Status </b></center></h1>
+        </div>
+        <div class="navbar-end navbar-item" >
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/searchflight"> Search </a>
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/logout">Logout</a>
+        </div>
+
+    </div>
+<div class="tabs">
+</div>
+ <div style="padding:15px" class ="centerall container is-fluid">
+    {% if error %}
+    <strong>{{error}}</strong>
+    {% else %}
+
+    <table class="table is-centered">
+
+
+        <tr>
+            <td> <strong>BOOKING CONFIRMED</strong></td>
+        </tr>
+            <tr>
+                <td><b>{{details.user_id}}</b></td>
+            </tr>
+            <tr>
+                <td>{{details.flight_name}}</td>
+            </tr>
+            <tr>
+                <td>{{details.source}} to {{details.destination}}</td>
+            </tr>
+            <tr>
+                <td>{{details.price_economy}}</td>
+            </tr>
+
+    </table>
+
+    {% endif %}
+</div>
+</html>

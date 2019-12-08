@@ -2,7 +2,15 @@ import uuid
 
 from django.contrib.auth.models import User
 from django.db import models
+from djongo import models as dmodels
 
+
+class Feed(dmodels.Model):
+    _id = dmodels.ObjectIdField()
+    text = dmodels.TextField()
+    user = dmodels.CharField(max_length=20)
+    profile_picture = dmodels.TextField()
+    full_post = dmodels.TextField()
 
 class Airport(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -24,7 +32,6 @@ class UserDetail(models.Model):
 
 
 class Flight(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     flight_id = models.CharField(max_length=20)
     flight_name = models.CharField(max_length=30)
     source = models.CharField(max_length=20)
@@ -34,6 +41,21 @@ class Flight(models.Model):
     vacant_seats_economy = models.IntegerField()
     total_seats_business = models.IntegerField()
     vacant_seats_business = models.IntegerField()
-    price_economy = models.FloatField()
-    price_business = models.FloatField()
+    price_economy = models.IntegerField()
+    price_business = models.IntegerField()
     date = models.DateField()
+
+class Coupon(dmodels.Model):
+    coupon_id = dmodels.CharField(max_length=20)
+    coupon_code = dmodels.CharField(max_length=10)
+    coupon_description = dmodels.CharField(max_length=10)
+
+
+class Bookings(models.Model):
+    flight_id = models.CharField(max_length=30)
+    user_id = models.CharField(max_length=30)
+    flight_name = models.CharField(max_length=30)
+    source = models.CharField(max_length=20)
+    destination = models.CharField(max_length=20)
+    airlines = models.CharField(max_length=10)
+    price_economy = models.IntegerField()

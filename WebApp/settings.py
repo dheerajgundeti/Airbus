@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'WebApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'onlinedb',
+        'NAME': 'airbusdb',
         'HOST': 'localhost',
         'USER':"root",
         'PASSWORD': "yourpassword"

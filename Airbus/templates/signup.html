@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <style>
+        .centerall {
+height: 100vh;
+padding: 0;
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+align-items:center
+}
+
+    </style>
 </head>
-<body><br><br>
-    <form method="POST" class="form" align="center">
-        <div>
-        {% csrf_token %}
-        {{ form.as_p}}
-        </div>
-        <br>
-        <div align="center">
-            <input type="submit" class="button is-rounded">
-        </div>
-    </form><br>
+<body>
+ {% if messages %}
+<div class="notification is-danger" align="center" data-width="">
+  <button class="delete"></button>
+    {% for message in messages %}
+     {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+    <div class="centerall">
+
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table is-striped is-bordered">
+        {{form}}
+    </table>
+        <input class="is-primary button shift" type="submit" value="submit">
+    </form>
+    </div>
 </body>
 </html>

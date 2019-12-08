@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <style>
+        .centerall {
+height: 100vh;
+padding: 0;
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+align-items:center
+}
+
+    </style>
+</head>
+<div class="navbar" style="background-color : lightgreen;margin-bottom:2%">
+        <div class="navbar-item" style="width:10%" ></div>
+        <div class="navbar-item" style="font-size:30px;%">
+            <h1><center><b> Flights </b></center></h1>
+        </div>
+        <div class="navbar-end navbar-item" >
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/searchflight"> Search </a>
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/logout">Logout</a>
+        </div>
+
+    </div>
+<div class="tabs">
+
+</div>
+{% for flight in flights %}
+<div class="box">
+        <div class="media">
+            <div class="media-content">
+
+                <p>
+                <pre> <strong> {{flight.flight_name}} </strong>                                                <strong>Tota1 Price:</strong> {{ flight.price_economy }}
+                {{flight.source}}                                                        {{flight.destination}}                        {{flight.price_economy}}
+                </pre>
+                </p>
+
+            </div>
+    </div>
+</div>
+{% endfor %}
+
+<body>
+</body>
+</html>

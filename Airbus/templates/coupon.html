@@ -3,7 +3,7 @@
 <head>
      {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Coupon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
     <style>
         .centerall {
@@ -17,6 +17,7 @@ align-items:center
 
     </style>
 </head>
+<br>
 <body>
 {% if messages %}
 <div class="notification is-danger" align="center" data-width="">
@@ -33,7 +34,6 @@ align-items:center
         {{form}}
         </table>
         <input class="is-primary button shift" type="submit" value="submit">
-        <a class="button is-light"href="{% url  'signup_html'%}">signup</a>
 </form>
 </div>
 </body>

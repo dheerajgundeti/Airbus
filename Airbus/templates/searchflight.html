@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <style>
+        .centerall {
+height: 100vh;
+padding: 0;
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+align-items:center
+}
+body {
+  background-image: url('img_girl.jpg');
+}
+    </style>
+</head>
+<body>
+<div class="navbar" style="background-color : lightgreen;margin-bottom:2%">
+        <div class="navbar-item" style="width:10%" ></div>
+        <div class="navbar-item" style="font-size:30px;%">
+            <h1><center><b> AirBus Flights </b></center></h1>
+        </div>
+        <div class="navbar-end navbar-item" >
+            {%if admin%}
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/addflight"> ADD Flight </a>
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/addcoupons"> ADD Coupons </a>
+            {%endif%}
+            {%if not admin%}
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/offers"> Offers </a>
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/transactions"> My Transactions </a>
+            {%endif%}
+
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/logout">Logout</a>
+        </div>
+    </div>
+<div class="centerall">
+   <form method="POST" class="box">
+    {% csrf_token %}
+       <table class="table is-bordered is-striped">
+        {{form}}
+        </table>
+        <input class="is-primary button shift" type="submit" value="Search Flights">
+</form>
+</div>
+</body>
+</html>

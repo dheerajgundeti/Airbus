@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Offers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <style>
+        .centerall {
+height: 100vh;
+padding: 0;
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+}
+
+    </style>
+</head>
+
+<div class="navbar" style="background-color : lightgreen;margin-bottom:2%">
+        <div class="navbar-item" style="width:10%" ></div>
+        <div class="navbar-item" style="font-size:30px;%">
+            <h1><center><b> Offers </b></center></h1>
+        </div>
+        <div class="navbar-end navbar-item" >
+            {%if admin%}
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/addflight"> ADD Flight </a>
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/addcoupons"> ADD Coupons </a>
+            {%endif%}
+            {%if not admin%}
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/offers"> Offers </a>
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/transactions"> My Transactions </a>
+            {%endif%}
+
+            <a class="button is-rounded"  href="http://127.0.0.1:8000/logout">Logout</a>
+        </div>
+    </div>
+<body>
+    <div style="padding:15px" class ="centerall container is-fluid">
+    <table class="table is-centered">
+        <tr>
+            <th>coupon id</th>
+            <th>coupon name</th>
+            <th>coupon description</th>
+        </tr>
+
+    {%for coupon in coupons %}
+        <tr>
+            <td>{{coupon.coupon_id}}</td>
+            <td>{{coupon.coupon_code}}</td>
+            <td>{{coupon.coupon_description}}</td>
+        </tr>
+
+
+
+        {% endfor %}
+
+</table>
+
+</div>
+</body>
+</html>
