@@ -5,4 +5,4 @@ textblob
 twython
 django-mongodb-engine
 djongo
-sqlparse==0.2.4
+sqlparse==0.4.4
